@@ -8,11 +8,11 @@ $hourYouStopWorking = 18
 
 
 if ($daysYouDontWorkExpr) {
-    Write-Output "Today is $day, no need to start Teams :)"
+    Write-Output "Today is $day, no need to start $appName :)"
 } elseif ($hour -le $hourYouStartWorking -or $hour -ge $hourYouStopWorking) {
-    Write-Output "It's EOB / too early, no need to start Teams :)"
+    Write-Output "It's EOB / too early, no need to start $appName :)"
 } else {
-    Write-Output "It's business hours on a weekday, starting Teams..."
+    Write-Output "It's business hours on a weekday, starting $appName..."
     $userprofile = $env:USERPROFILE
     Start-Process -FilePath "$userprofile\AppData\Local\Microsoft\Teams\Update.exe" -ArgumentList "--processStart `"Teams.exe`""
 }
